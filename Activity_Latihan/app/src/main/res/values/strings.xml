@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Aplikasi_Sederhana</string>
+    <string name="hasil">Hasil</string>
+    <string name="hitung">Hitung</string>
+    <string name="panjang">Panjang</string>
+    <string name="tinggi">Tinggi</string>
+</resources>
