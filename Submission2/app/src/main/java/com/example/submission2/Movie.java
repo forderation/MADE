@@ -4,88 +4,97 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Movie implements Parcelable {
-    public static final String PATH_IMG = "https://image.tmdb.org/t/p/w300";
-    private String originalTitle, overview, posterPath, voteAverage, releaseDate, homepage, backdropPath, adult, tagline, status;
+    static final String PATH_IMG = "https://image.tmdb.org/t/p/w500";
 
-    public String getOriginalTitle() {
+    String getOriginalTitle() {
         return originalTitle;
     }
 
-    public void setOriginalTitle(String originalTitle) {
+    void setOriginalTitle(String originalTitle) {
         this.originalTitle = originalTitle;
     }
 
-    public String getOverview() {
+    String getOverview() {
         return overview;
     }
 
-    public void setOverview(String overview) {
+    void setOverview(String overview) {
         this.overview = overview;
     }
 
-    public String getPosterPath() {
+    String getPosterPath() {
         return posterPath;
     }
 
-    public void setPosterPath(String posterPath) {
+    void setPosterPath(String posterPath) {
         this.posterPath = posterPath;
     }
 
-    public String getVoteAverage() {
+    String getVoteAverage() {
         return voteAverage;
     }
 
-    public void setVoteAverage(String voteAverage) {
+    void setVoteAverage(String voteAverage) {
         this.voteAverage = voteAverage;
     }
 
-    public String getReleaseDate() {
+    String getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(String releaseDate) {
+    void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
 
-    public String getHomepage() {
+    String getHomepage() {
         return homepage;
     }
 
-    public void setHomepage(String homepage) {
+    void setHomepage(String homepage) {
         this.homepage = homepage;
     }
 
-    public String getBackdropPath() {
+    String getBackdropPath() {
         return backdropPath;
     }
 
-    public void setBackdropPath(String backdropPath) {
+    void setBackdropPath(String backdropPath) {
         this.backdropPath = backdropPath;
     }
 
-    public String getAdult() {
+    String getAdult() {
         return adult;
     }
 
-    public void setAdult(String adult) {
+    void setAdult(String adult) {
         this.adult = adult;
     }
 
-    public String getTagline() {
+    String getTagline() {
         return tagline;
     }
 
-    public void setTagline(String tagline) {
+    void setTagline(String tagline) {
         this.tagline = tagline;
     }
 
-    public String getStatus() {
+    String getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    void setStatus(String status) {
         this.status = status;
     }
+
+    String getOriginalLanguage() {
+        return originalLanguage;
+    }
+
+    void setOriginalLanguage(String originalLanguage) {
+        this.originalLanguage = originalLanguage;
+    }
+
+    private String originalTitle, overview, posterPath, voteAverage, releaseDate, homepage, backdropPath, adult, tagline, status, originalLanguage;
 
     @Override
     public int describeContents() {
@@ -104,12 +113,13 @@ public class Movie implements Parcelable {
         dest.writeString(this.adult);
         dest.writeString(this.tagline);
         dest.writeString(this.status);
+        dest.writeString(this.originalLanguage);
     }
 
-    public Movie() {
+    Movie() {
     }
 
-    protected Movie(Parcel in) {
+    private Movie(Parcel in) {
         this.originalTitle = in.readString();
         this.overview = in.readString();
         this.posterPath = in.readString();
@@ -120,9 +130,10 @@ public class Movie implements Parcelable {
         this.adult = in.readString();
         this.tagline = in.readString();
         this.status = in.readString();
+        this.originalLanguage = in.readString();
     }
 
-    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
+    public static final Creator<Movie> CREATOR = new Creator<Movie>() {
         @Override
         public Movie createFromParcel(Parcel source) {
             return new Movie(source);

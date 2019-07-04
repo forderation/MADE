@@ -15,7 +15,7 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
-    public void setListMovie(ArrayList<Movie> listMovie) {
+    void setListMovie(ArrayList<Movie> listMovie) {
         this.listMovie = listMovie;
     }
 
